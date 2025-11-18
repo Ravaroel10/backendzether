@@ -20,32 +20,24 @@ mp.mp.dps = 80  # presisi tinggi
 # (I keep your original explicit ones up to 19)
 # ---------------------------------------
 special_cases: Dict[int, str] = {
-     3: r"\zeta(3) = \frac{(-1)^1 2^{2\cdot 1}}{2^{2\cdot 1+1}-1}\Big\{"
-       r"\sum_{j=1}^{0} (\cdots) - \frac{\pi^2}{(2\cdot 1)!}\Big(\ln\pi-\frac{1}{2}\Big) - 1\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+1)2^{2k}}\Big\}",
-    5: r"\zeta(5) = \frac{(-1)^2 2^{2\cdot 2}}{2^{2\cdot 2+1}-1}\Big\{"
-       r"\sum_{j=1}^{1} (-1)^{j-1}\frac{\pi^{2(2-j)}}{2(2-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-       r" - \frac{\pi^2}{(4)!}\Big(\ln\pi-\frac{1}{4}\Big) - 2\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+2)2^{2k}}\Big\}",
-    7: r"\zeta(7) = \frac{(-1)^3 2^{2\cdot 3}}{2^{2\cdot 3+1}-1}\Big\{"
-       r"\sum_{j=1}^{2} (-1)^{j-1}\frac{\pi^{2(3-j)}}{2(3-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-       r" - \frac{\pi^2}{(6)!}\Big(\ln\pi-\frac{1}{6}\Big) - 3\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+3)2^{2k}}\Big\}",
-    9: r"\zeta(9) = \frac{(-1)^4 2^{2\cdot 4}}{2^{2\cdot 4+1}-1}\Big\{"
-       r"\sum_{j=1}^{3} (-1)^{j-1}\frac{\pi^{2(4-j)}}{2(4-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-       r" - \frac{\pi^2}{(8)!}\Big(\ln\pi-\frac{1}{8}\Big) - 4\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+4)2^{2k}}\Big\}",
-    11: r"\zeta(11) = \frac{(-1)^5 2^{2\cdot 5}}{2^{2\cdot 5+1}-1}\Big\{"
-        r"\sum_{j=1}^{4} (-1)^{j-1}\frac{\pi^{2(5-j)}}{2(5-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-        r" - \frac{\pi^2}{(10)!}\Big(\ln\pi-\frac{1}{10}\Big) - 5\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+5)2^{2k}}\Big\}",
-    13: r"\zeta(13) = \frac{(-1)^6 2^{2\cdot 6}}{2^{2\cdot 6+1}-1}\Big\{"
-        r"\sum_{j=1}^{5} (-1)^{j-1}\frac{\pi^{2(6-j)}}{2(6-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-        r" - \frac{\pi^2}{(12)!}\Big(\ln\pi-\frac{1}{12}\Big) - 6\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+6)2^{2k}}\Big\}",
-    15: r"\zeta(15) = \frac{(-1)^7 2^{2\cdot 7}}{2^{2\cdot 7+1}-1}\Big\{"
-        r"\sum_{j=1}^{6} (-1)^{j-1}\frac{\pi^{2(7-j)}}{2(7-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-        r" - \frac{\pi^2}{(14)!}\Big(\ln\pi-\frac{1}{14}\Big) - 7\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+7)2^{2k}}\Big\}",
-    17: r"\zeta(17) = \frac{(-1)^8 2^{2\cdot 8}}{2^{2\cdot 8+1}-1}\Big\{"
-        r"\sum_{j=1}^{7} (-1)^{j-1}\frac{\pi^{2(8-j)}}{2(8-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-        r" - \frac{\pi^2}{(16)!}\Big(\ln\pi-\frac{1}{16}\Big) - 8\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+8)2^{2k}}\Big\}",
-    19: r"\zeta(19) = \frac{(-1)^9 2^{2\cdot 9}}{2^{2\cdot 9+1}-1}\Big\{"
-        r"\sum_{j=1}^{8} (-1)^{j-1}\frac{\pi^{2(9-j)}}{2(9-j)!}\Big(1-\frac{1}{2^{2j}}\Big)\zeta(2j+1)"
-        r" - \frac{\pi^2}{(18)!}\Big(\ln\pi-\frac{1}{18}\Big) - 9\sum_{k=1}^\infty \frac{\zeta(2k)}{k(k+9)2^{2k}}\Big\}",
+     3:\quad 
+\zeta(3) &= \frac{2\pi^{2}}{7}\left(\ln \pi - \frac{1}{2} - \sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right), \\[1em]
+5:\quad 
+\zeta(5) &= \frac{6\pi^{2}}{31}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{4} - 2\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right), \\[1em]
+7:\quad 
+\zeta(7) &= \frac{10\pi^{2}}{127}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{6} - 3\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right), \\[1em]
+9:\quad 
+\zeta(9) &= \frac{14\pi^{2}}{511}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{8} - 4\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right), \\[1em]
+11:\quad 
+\zeta(11) &= \frac{18\pi^{2}}{2047}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{10} - 5\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right), \\[1em]
+13:\quad 
+\zeta(13) &= \frac{22\pi^{2}}{8191}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{12} - 6\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right), \\[1em]
+15:\quad 
+\zeta(15) &= \frac{26\pi^{2}}{32767}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{14} - 7\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right), \\[1em]
+17:\quad 
+\zeta(17) &= \frac{30\pi^{2}}{131071}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{16} - 8\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right)\right), \\[1em]
+19:\quad 
+\zeta(19) &= \frac{34\pi^{2}}{524287}\left(\zeta(17) - \frac{\pi^{2}}{9}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{18} - 9\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right)\right)\right).
 }
 
 # ---------------------------------------
