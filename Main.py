@@ -20,25 +20,43 @@ mp.mp.dps = 80  # presisi tinggi
 # (I keep your original explicit ones up to 19)
 # ---------------------------------------
 special_cases: Dict[int, str] = {
-     3:\quad 
-\zeta(3) &= \frac{2\pi^{2}}{7}\left(\ln \pi - \frac{1}{2} - \sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right), \\[1em]
-5:\quad 
-\zeta(5) &= \frac{6\pi^{2}}{31}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{4} - 2\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right), \\[1em]
-7:\quad 
-\zeta(7) &= \frac{10\pi^{2}}{127}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{6} - 3\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right), \\[1em]
-9:\quad 
-\zeta(9) &= \frac{14\pi^{2}}{511}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{8} - 4\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right), \\[1em]
-11:\quad 
-\zeta(11) &= \frac{18\pi^{2}}{2047}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{10} - 5\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right), \\[1em]
-13:\quad 
-\zeta(13) &= \frac{22\pi^{2}}{8191}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{12} - 6\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right), \\[1em]
-15:\quad 
-\zeta(15) &= \frac{26\pi^{2}}{32767}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{14} - 7\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right), \\[1em]
-17:\quad 
-\zeta(17) &= \frac{30\pi^{2}}{131071}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{16} - 8\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right)\right), \\[1em]
-19:\quad 
-\zeta(19) &= \frac{34\pi^{2}}{524287}\left(\zeta(17) - \frac{\pi^{2}}{9}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{18} - 9\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right)\right)\right).
+    3: r"""
+\zeta(3) = \frac{2\pi^{2}}{7}\left(\ln \pi - \frac{1}{2} - \sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)
+""",
+
+    5: r"""
+\zeta(5) = \frac{6\pi^{2}}{31}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{4} - 2\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)
+""",
+
+    7: r"""
+\zeta(7) = \frac{10\pi^{2}}{127}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{6} - 3\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)
+""",
+
+    9: r"""
+\zeta(9) = \frac{14\pi^{2}}{511}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{8} - 4\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)
+""",
+
+    11: r"""
+\zeta(11) = \frac{18\pi^{2}}{2047}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{10} - 5\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)
+""",
+
+    13: r"""
+\zeta(13) = \frac{22\pi^{2}}{8191}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{12} - 6\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)
+""",
+
+    15: r"""
+\zeta(15) = \frac{26\pi^{2}}{32767}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{14} - 7\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)
+""",
+
+    17: r"""
+\zeta(17) = \frac{30\pi^{2}}{131071}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{16} - 8\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)
+""",
+
+    19: r"""
+\zeta(19) = \frac{34\pi^{2}}{524287}\left(\zeta(17) - \frac{\pi^{2}}{9}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{18} - 9\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right)
+"""
 }
+
 
 # ---------------------------------------
 # Programmatic template generator up to n=39
