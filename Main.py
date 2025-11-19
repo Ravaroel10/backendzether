@@ -45,15 +45,95 @@ special_cases: Dict[int, str] = {
 """,
 
     15: r"""
-\zeta(15) = \frac{26\pi^{2}}{32767}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{14} - 7\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)
+\zeta(15) = 
+\frac{26\pi^{2}}{32767}\Big(
+  \zeta(13)
+  - \frac{\pi^{2}}{9}\Big(
+      \zeta(11)
+      - \frac{\pi^{2}}{9}\Big(
+          \zeta(9)
+          - \frac{\pi^{2}}{9}\Big(
+              \zeta(7)
+              - \frac{\pi^{2}}{9}\Big(
+                  \zeta(5)
+                  - \frac{\pi^{2}}{9}\Big(
+                      \zeta(3)
+                      - \frac{\pi^{2}}{9}\Big(
+                          \ln \pi - \frac{1}{14}
+                          - 7\sum_{k=1}^{\infty}
+                            \frac{\zeta(2k)}{k(k+1)2^{2k}}
+                      \Big)
+                  \Big)
+              \Big)
+          \Big)
+      \Big)
+  \Big)
+\Big)
 """,
+
 
     17: r"""
-\zeta(17) = \frac{30\pi^{2}}{131071}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{16} - 8\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)
+\zeta(17) =
+\frac{30\pi^{2}}{131071}\Big(
+  \zeta(15)
+  - \frac{\pi^{2}}{9}\Big(
+      \zeta(13)
+      - \frac{\pi^{2}}{9}\Big(
+          \zeta(11)
+          - \frac{\pi^{2}}{9}\Big(
+              \zeta(9)
+              - \frac{\pi^{2}}{9}\Big(
+                  \zeta(7)
+                  - \frac{\pi^{2}}{9}\Big(
+                      \zeta(5)
+                      - \frac{\pi^{2}}{9}\Big(
+                          \zeta(3)
+                          - \frac{\pi^{2}}{9}\Big(
+                              \ln \pi - \frac{1}{16}
+                              - 8\sum_{k=1}^{\infty}
+                                \frac{\zeta(2k)}{k(k+1)2^{2k}}
+                          \Big)
+                      \Big)
+                  \Big)
+              \Big)
+          \Big)
+      \Big)
+  \Big)
+\Big)
 """,
 
+
     19: r"""
-\zeta(19) = \frac{34\pi^{2}}{524287}\left(\zeta(17) - \frac{\pi^{2}}{9}\left(\zeta(15) - \frac{\pi^{2}}{9}\left(\zeta(13) - \frac{\pi^{2}}{9}\left(\zeta(11) - \frac{\pi^{2}}{9}\left(\zeta(9) - \frac{\pi^{2}}{9}\left(\zeta(7) - \frac{\pi^{2}}{9}\left(\zeta(5) - \frac{\pi^{2}}{9}\left(\zeta(3) - \frac{\pi^{2}}{9}\left(\ln \pi - \frac{1}{18} - 9\sum_{k=1}^{\infty} \frac{\zeta(2k)}{k(k+1)2^{2k}}\right)\right)\right)\right)\right)\right)\right)
+\zeta(19) =
+\frac{34\pi^{2}}{524287}\Big(
+  \zeta(17)
+  - \frac{\pi^{2}}{9}\Big(
+      \zeta(15)
+      - \frac{\pi^{2}}{9}\Big(
+          \zeta(13)
+          - \frac{\pi^{2}}{9}\Big(
+              \zeta(11)
+              - \frac{\pi^{2}}{9}\Big(
+                  \zeta(9)
+                  - \frac{\pi^{2}}{9}\Big(
+                      \zeta(7)
+                      - \frac{\pi^{2}}{9}\Big(
+                          \zeta(5)
+                          - \frac{\pi^{2}}{9}\Big(
+                              \zeta(3)
+                              - \frac{\pi^{2}}{9}\Big(
+                                  \ln \pi - \frac{1}{18}
+                                  - 9\sum_{k=1}^{\infty}
+                                    \frac{\zeta(2k)}{k(k+1)2^{2k}}
+                              \Big)
+                          \Big)
+                      \Big)
+                  \Big)
+              \Big)
+          \Big)
+      \Big)
+  \Big)
+\Big)
 """
 }
 
