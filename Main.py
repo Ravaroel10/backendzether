@@ -181,11 +181,11 @@ for n in range(3, 40, 2):
 
 
 @app.get("/symbolic")
-def get_symbolic(n: int = Query(..., description="odd n >= 3, up to 39")):
+def get_symbolic(n: int = Query(..., description="odd n >= 3, up to 53")):
     if n % 2 == 0 or n < 3:
         return {"error": "Use odd n >= 3"}
-    if n > 39:
-        return {"warning": "Templates generated up to 39 only", "n": n}
+    if n > 53:
+        return {"warning": "Templates generated up to 53 only", "n": n}
 
     return {"n": n, "symbolic": special_cases.get(n, generate_symbolic_template(n))}
 
