@@ -138,9 +138,7 @@ special_cases: Dict[int, str] = {
 }
 
 
-# ---------------------------------------
-# Programmatic template generator up to n=39
-# ---------------------------------------
+
 def generate_symbolic_template(n: int) -> str:
     """
     Create a LaTeX template for the odd zeta reconstruction up to n.
@@ -150,42 +148,38 @@ def generate_symbolic_template(n: int) -> str:
     if n % 2 == 0 or n < 3:
         return r"Invalid: use odd n >= 3"
 
-    # If we already have an explicit formula, return it
+    
     if n in special_cases:
         return special_cases[n]
 
     l = (n - 1) // 2
 
-    # Build polynomial placeholders: a_0 π^{2l} + a_1 π^{2(l-1)} ζ(3) + ...
-    # We'll create terms down to ζ(3) (if applicable). Use symbolic coefficients α_j.
+    
     poly_terms = []
-    # number of lower odd zetas included = l-1 (for n>=5)
-    # We'll produce terms for j from 0..(l-1): coefficient * π^{2*(l-j)} * ζ(2*j+1?) pattern is illustrative
+    
     for j in range(0, l):
         power_pi = 2 * (l - j)
-        lower_zeta_idx = 2 * j + 1  # 1,3,5,... but j=0 gives zeta(1) which is ill-defined; skip zeta(1)
+        lower_zeta_idx = 2 * j + 1 
         if lower_zeta_idx == 1:
-            # treat constant-only term
+
             poly_terms.append(rf"\alpha_{{{j}}}\pi^{{{power_pi}}}")
         else:
             poly_terms.append(rf"\alpha_{{{j}}}\pi^{{{power_pi}}}\zeta({lower_zeta_idx})")
 
     poly_str = " + ".join(poly_terms) if poly_terms else r"\text{(polynomial in }\pi\text{)}"
 
-    # summation tail
+ 
     summation = rf"\tfrac{{1}}{{2}}\sum_{{k=1}}^{{\infty}} \frac{{\zeta(2k)}}{{k(k+{l})2^{{2k}}}}"
 
     template = rf"\zeta({n}) = {poly_str} - {summation}"
     return template
 
-# pre-populate templates up to 39 (do not override explicit ones)
+
 for n in range(3, 40, 2):
     if n not in special_cases:
         special_cases[n] = generate_symbolic_template(n)
 
-# ---------------------------------------
-# Endpoint: /symbolic?n=...  (returns LaTeX template)
-# ---------------------------------------
+
 @app.get("/symbolic")
 def get_symbolic(n: int = Query(..., description="odd n >= 3, up to 39")):
     if n % 2 == 0 or n < 3:
@@ -195,9 +189,7 @@ def get_symbolic(n: int = Query(..., description="odd n >= 3, up to 39")):
 
     return {"n": n, "symbolic": special_cases.get(n, generate_symbolic_template(n))}
 
-# ---------------------------------------
-# Endpoint: /calculate?n=...&limit=...
-# ---------------------------------------
+
 @app.get("/calculate")
 def calculate(n: int = Query(..., description="odd n >= 3"), limit: int = 1000):
     if n % 2 == 0 or n < 3:
@@ -207,7 +199,7 @@ def calculate(n: int = Query(..., description="odd n >= 3"), limit: int = 1000):
     total = mp.mpf('0')
     for k in range(1, limit + 1):
         total += mp.power(k, -n)
-        partial_sums.append({"term": k, "partialSum": float(total)})  # ✅ ubah jadi dict
+        partial_sums.append({"term": k, "partialSum": float(total)})  
 
     true_val = mp.zeta(n)
 
