@@ -7,7 +7,10 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "service": "backendzether"
+    }
 
 app.add_middleware(
     CORSMiddleware,
@@ -183,12 +186,6 @@ for n in range(3, 40, 2):
     if n not in special_cases:
         special_cases[n] = generate_symbolic_template(n)
 
-@app.get("/")
-def root():
-    return {
-        "status": "ok",
-        "service": "backendzether"
-    }
 
 @app.get("/symbolic")
 def get_symbolic(n: int = Query(..., description="odd n >= 3, up to 53")):
