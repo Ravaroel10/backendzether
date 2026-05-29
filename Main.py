@@ -7,8 +7,16 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://frontend-kamu.vercel.app",
+    ],
     allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -179,6 +187,12 @@ for n in range(3, 40, 2):
     if n not in special_cases:
         special_cases[n] = generate_symbolic_template(n)
 
+@app.get("/")
+def root():
+    return {
+        "status": "ok",
+        "service": "backendzether"
+    }
 
 @app.get("/symbolic")
 def get_symbolic(n: int = Query(..., description="odd n >= 3, up to 53")):
