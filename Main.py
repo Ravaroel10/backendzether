@@ -5,23 +5,19 @@ from typing import Dict
 
 app = FastAPI()
 
+@app.get("/")
+def root():
+    return {"status": "ok"}
+
 app.add_middleware(
     CORSMiddleware,
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "https://frontend-kamu.vercel.app",
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-mp.mp.dps = 80  # presisi tinggi
+mp.mp.dps = 80
 
 # ---------------------------------------
 # Manual explicit special_cases (keep these)
